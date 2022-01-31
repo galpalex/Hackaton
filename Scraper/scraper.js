@@ -5,7 +5,7 @@ import { PlaceText } from '../models/placeText.js';
 
 const scrapeWeb = async (name, url) => {
     const scraped = [];
-    const browser = await puppeteer.launch({ headless: true, defaultViewport:false });
+    const browser = await puppeteer.launch({ headless: true, defaultViewport:false,ignoreDefaultArgs: ['--disable-extensions'] });
     const page = await browser.newPage();
     await page.goto(url);
     await page.waitForSelector('.mw-parser-output > p');

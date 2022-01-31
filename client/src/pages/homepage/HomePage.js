@@ -1,10 +1,11 @@
 import React from 'react';
-import BtnComponent from "../btn/BtnComponent";
-import Map from "../map/Map";
+import BtnComponent from '../../components/btn/BtnComponent';
+import Map from "../../components/map/Map";
+import { Wrapper, Status } from "@googlemaps/react-wrapper";
 import "./homepage.css";
-import api from '../api/api';
+import api from '../../api/api';
 import { useState, useEffect } from 'react';
-import LocationPage from '../location/LocationPage.js'
+import LocationPage from '../../components/location/LocationPage';
 
 function Homepage() {
   const [places, setPlaces] = useState([]);
@@ -13,6 +14,7 @@ function Homepage() {
   const getAllPlaces = async () => {
     try {
       const response = await api.get('/places');
+      console.log(response)
       if (response) {
         setPlaces(response.data)
       } else {
@@ -30,13 +32,14 @@ function Homepage() {
     setplaceOnMap(val);
     console.log(val)
   }
+  
 
 
   return <div className='homepage-container'>
-    {/* <div>map website</div> */}
-    <div className="map">
-      <Map data={places} placeOnMap={bringPlaceFromMap} />
-    </div>
+    {/* <div className='title' >Map For All</div> */}
+    <Wrapper apiKey={process.env.REACT_APP_MAP_KEY} >
+      <Map places={places} placeOnMap={bringPlaceFromMap} />
+    </Wrapper>
     <LocationPage placeData={placeOnMap} /> 
   </div>;
 }

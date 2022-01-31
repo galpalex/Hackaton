@@ -1,9 +1,7 @@
 import React, { useState, useEffect } from "react";
 import ReactMapGL, { Marker, Popup } from "react-map-gl";
-import api from "../api/api";
-// import "./amalMap.css";
-// import { placeDate } from "../data/skateboard-parks.json";
-// console.log(placeDate.features)
+import api from "../../api/api";
+
 export default function Map(props) {
   const [places, setPlaces] = useState([])
   const [viewport, setViewport] = useState({

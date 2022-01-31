@@ -1,0 +1,27 @@
+:root {
+  --primary: #71b8ce;
+  --secondary: #0e5d9e;
+  --dark: #212121;
+  --light: #f3f3f3;
+}
+
+.imgs-container {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+.imgs-container img {
+  width: 30%;
+  height: 200px;
+  margin-top: 3.5%;
+  border-radius: 2rem;
+  box-shadow: 1rem 1rem 2rem rgb(15, 15, 15);
+}
+
+@media (max-width: 506px) {
+  .imgs-container img {
+    width: 25%;
+    height: 100%;
+    margin-top: 3.5%;
+  }
+}
